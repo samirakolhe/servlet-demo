@@ -1,5 +1,4 @@
-FROM openjdk:17-jdk-alpine
-COPY . /var/www/java
-WORKDIR /var/www/java
-RUN javac first.java
-CMD ["java","first"]
+FROM tomcat:8.0-alpine
+ADD sample.war /usr/local/tomcat/webapps/
+EXPOSE 8080
+CMD ["catalina.sh","run"]
